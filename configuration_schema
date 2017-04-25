@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Options">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Gameplay"/>
+        <xs:element ref="Interface"/>
+        <xs:element ref="Controls"/>
+        <xs:element ref="Audio"/>
+        <xs:element ref="Video"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Gameplay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Mouse_Trape"/>
+        <xs:element ref="chat"/>
+        <xs:element name="server" type="xs:string"/>
+        <xs:element ref="Language"/>
+        <xs:element ref="Auto_Save"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Mouse_Trape">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="chat">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Language">
+    <xs:complexType>
+      <xs:attribute name="lang" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Auto_Save">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Interface">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Icons_Type" type="xs:string"/>
+        <xs:element name="Label_size" type="xs:string"/>
+        <xs:element name="Display_Frontline" type="xs:string"/>
+        <xs:element name="HUD_size" type="xs:string"/>
+        <xs:element ref="Display_Minimap"/>
+        <xs:element ref="Show_unit_name"/>
+        <xs:element ref="unit_scaling"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Display_Minimap">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Show_unit_name">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unit_scaling">
+    <xs:complexType>
+      <xs:attribute name="scale" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Controls">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="input" type="xs:string"/>
+        <xs:element name="sensitivity" type="xs:string"/>
+        <xs:element ref="inverted_mouse"/>
+        <xs:element ref="Camera"/>
+        <xs:element ref="Flare"/>
+        <xs:element name="Deployment_Menu" type="xs:string"/>
+        <xs:element name="Unit_Information" type="xs:string"/>
+        <xs:element ref="Action"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="inverted_mouse">
+    <xs:complexType>
+      <xs:attribute name="horizontal" type="xs:string" use="required"/>
+      <xs:attribute name="vertical" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Camera">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Up" type="xs:string"/>
+        <xs:element name="Left" type="xs:string"/>
+        <xs:element name="Right" type="xs:string"/>
+        <xs:element name="Down" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Flare">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Attack" type="xs:string"/>
+        <xs:element name="Defend" type="xs:string"/>
+        <xs:element name="Help" type="xs:string"/>
+        <xs:element name="Custom_message" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Action">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Move_Fast" type="xs:string"/>
+        <xs:element name="Attack" type="xs:string"/>
+        <xs:element name="Unload_At_Position" type="xs:string"/>
+        <xs:element name="Unload" type="xs:string"/>
+        <xs:element name="Reverse" type="xs:string"/>
+        <xs:element name="Call_artillery" type="xs:string"/>
+        <xs:element name="Fall_back" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Audio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="volume"/>
+        <xs:element ref="speech"/>
+        <xs:element ref="subtitles"/>
+        <xs:element ref="voicechat"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="volume">
+    <xs:complexType mixed="true">
+      <xs:sequence minOccurs="0">
+        <xs:element name="Master_Volume" type="xs:string"/>
+        <xs:element name="Music_Volume" type="xs:string"/>
+        <xs:element name="Voice_Volume" type="xs:string"/>
+        <xs:element name="SFX_Volume" type="xs:string"/>
+        <xs:element name="Ambiance_Volume" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="enabled" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="speech">
+    <xs:complexType>
+      <xs:attribute name="lang" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subtitles">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+      <xs:attribute name="lang" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="voicechat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="volume"/>
+        <xs:element name="mode" type="xs:string"/>
+        <xs:element name="microphone_sensitivity" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Video">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Resolution" type="xs:string"/>
+        <xs:element name="Window_types" type="xs:string"/>
+        <xs:element ref="gamma"/>
+        <xs:element ref="brightness"/>
+        <xs:element ref="colorblind_mode"/>
+        <xs:element ref="vertical_sync"/>
+        <xs:element ref="Advance_Video"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gamma">
+    <xs:complexType>
+      <xs:attribute name="value" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="brightness">
+    <xs:complexType>
+      <xs:attribute name="value" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="colorblind_mode">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vertical_sync">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Advance_Video">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Anti_Aliasing" type="xs:string"/>
+        <xs:element name="Render_reduction" type="xs:string"/>
+        <xs:element name="Shader_Quality" type="xs:string"/>
+        <xs:element name="Texture_Quality" type="xs:string"/>
+        <xs:element name="Texture_Anisotropy" type="xs:string"/>
+        <xs:element name="Shadow_texture_quality" type="xs:string"/>
+        <xs:element name="Shadow_anti_aliasing" type="xs:string"/>
+        <xs:element name="Model_Quality" type="xs:string"/>
+        <xs:element name="Ground_Quality" type="xs:string"/>
+        <xs:element name="Terrain_resolution" type="xs:string"/>
+        <xs:element name="Water_Quality" type="xs:string"/>
+        <xs:element name="Imposter_texture_quality" type="xs:string"/>
+        <xs:element name="Dynamic_Light_Quality" type="xs:string"/>
+        <xs:element ref="Motion_Blur"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Motion_Blur">
+    <xs:complexType>
+      <xs:attribute name="enabled" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
